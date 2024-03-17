@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'; 
 import { StyledButton } from './styled';
 
-const Button = ({ text, isLoading, isDisabled, type, onClick, flex }) => {
+const Button = ({ text, isLoading, isDisabled, type, onClick, flex  }) => {
   const theme = useTheme();
 
   return (

@@ -10,7 +10,7 @@ padding: 14px 50px;
 display: flex;
 justify-content: space-between;
 align-items: center;
-box-shadow: 0 0 10px rgba(0,0,0,0.15);
+box-shadow: 0 0 10px rgba(0,0,0);
 @media only screen and (max-width:600px) {
     padding: 10px 12px;
     flex-direction: column;

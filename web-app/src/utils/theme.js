@@ -2,8 +2,8 @@ const DarkTheme = {
     background: '#15171e', // Dark grey for main background
     backgroundLight: '#2a2d37', // Lighter grey for elevated surfaces
     backgroundDark: '#0e1014', // Darker grey for shaded areas
-    primary: '#bb86fc', // Purple for primary elements
-    secondary: '#03dac6', // Teal for secondary elements
+    primary: '#007FFF', // Purple for primary elements
+    secondary: '#13274F', // Teal for secondary elements
     navBar: '#242731', // Slightly lighter grey for navigation bar
     arrow: '#ffffff', // White for arrows and icons
     menuPrimaryText: '#ffffff', // White for primary menu text

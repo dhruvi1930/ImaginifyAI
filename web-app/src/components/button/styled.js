@@ -14,9 +14,9 @@ const StyledButton = styled.button`
   font-size: medium;
   font-weight: bold;
 
-  &:hover {
+  /* &:hover {
     background-color: ${({ theme, isDisabled }) => isDisabled ? theme.disabled : theme.secondary};
-  }
+  } */
 
   .button-icon {
     margin-right: ${({ rightIcon }) => rightIcon ? '8px' : '0'};
