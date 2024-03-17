@@ -1,26 +1,42 @@
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  display: ${({ flex }) => (flex ? 'flex' : 'inline-flex')};
+  display: flex;
   align-items: center;
   justify-content: center;
   background-color: ${({ theme, isDisabled }) => isDisabled ? theme.disabled : theme.primary};
-  color: ${({ theme }) => theme.textPrimary};
-  padding: 8px 16px;
+  color: white;
+  padding: 10px 24px;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: ${({ isDisabled }) => isDisabled ? 'not-allowed' : 'pointer'};
-  opacity: ${({ isDisabled }) => isDisabled ? 0.5 : 1};
-  font-size: medium;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  gap:6px;
+  height: min-content;
+  @media (max-width:600px){
+    padding: 8px 12px;
+  }
 
-  /* &:hover {
-    background-color: ${({ theme, isDisabled }) => isDisabled ? theme.disabled : theme.secondary};
-  } */
+  ${({type ,theme}) => type === 'secondary' ? 
+  `background:${theme.secondary}` : 
+  `background:${theme.primary}`}
 
-  .button-icon {
-    margin-right: ${({ rightIcon }) => rightIcon ? '8px' : '0'};
-    margin-left: ${({ leftIcon }) => leftIcon ? '8px' : '0'};
+  ${({isDisabled}) => isDisabled && 
+    `opacity:0.4;
+    cursor:not-allowed;`
+  }
+
+  ${({isLoading}) => 
+    isLoading &&
+    `opacity:0.8;
+    cursor:not-allowed;`
+  }
+
+  ${({flex}) => 
+    flex &&
+    `flex:1;`
   }
 `;
 

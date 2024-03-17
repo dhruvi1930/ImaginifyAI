@@ -1,29 +1,31 @@
 import React from 'react';
-import { useTheme } from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons'; 
 import { StyledButton } from './styled';
+import { CircularProgress } from '@mui/material';
 
-const Button = ({ text, isLoading, isDisabled, type, onClick, flex  }) => {
-  const theme = useTheme();
-
+const Button = ({ 
+  text, 
+  isLoading, 
+  isDisabled, 
+  type, 
+  onClick, 
+  flex , 
+  leftIcon,
+  rightIcon }) => {
   return (
     <StyledButton
       type={type}
-      onClick={onClick}
-      disabled={isDisabled || isLoading}
+      onClick={() => !isLoading && !isLoading && onClick()}
+      isLoading={isLoading}
       flex={flex}
-      theme={theme}
       isDisabled={isDisabled}
     >
-      {isLoading ? (
-        <>
-          <FontAwesomeIcon icon={faSpinner} spin className="button-icon" />
-          {text}
-        </>
-      ) : (
-        text
+      {isLoading && (
+        <CircularProgress style={{ width:'18px',height:'18px'}}/>
       )}
+     {leftIcon}
+     {text}
+     {isLoading && <>...</>}
+     {rightIcon}
     </StyledButton>
   );
 };

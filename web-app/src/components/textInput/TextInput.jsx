@@ -1,30 +1,31 @@
 import React from 'react';
-import { Container,Label,Input,TextArea } from './styled';
+import { Container,Label,Input, OutlinedInput } from './styled';
 
-const TextInput = ({ label, placeholder, name, value, handleChange, textArea, rows, columns }) => {
+const TextInput = ({ 
+  label, 
+  placeholder, 
+  name, 
+  value, 
+  handleChange, 
+  textArea, 
+  rows, 
+  columns 
+}) => {
   return (
     <Container>
-      {label && <Label htmlFor={name}>{label}</Label>}
-      {!textArea ? (
-        <Input
+      <Label>{label}</Label>
+      <OutlinedInput>
+      <Input
+          as={textArea ? 'textarea' : 'input'}
           type="text"
-          id={name}
           name={name}
+          rows={rows}
+          columns={columns}
           placeholder={placeholder}
           value={value}
-          onChange={handleChange}
+          onChange={(event) => handleChange(event)}
         />
-      ) : (
-        <TextArea
-          id={name}
-          name={name}
-          placeholder={placeholder}
-          value={value}
-          onChange={handleChange}
-          rows={rows || '3'}
-          cols={columns || '30'}
-        />
-      )}
+      </OutlinedInput>
     </Container>
   );
 };

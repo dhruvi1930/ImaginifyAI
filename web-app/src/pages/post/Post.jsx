@@ -1,9 +1,34 @@
-import React from "react";
-import { Container } from "./styled";
+import React, { useState } from "react";
+import { Container,Wrapper } from "./styled";
+import PostForm from "../../components/postForm/PostForm";
+import GeneratedImage from "../../components/generatedImage/GeneratedImage";
 
 const Post = () => {
-    return (
-        <Container>Post</Container> 
+    const [isGeneratedImageLoading,setIsGeneratedImageLoading] = useState(false);
+    const [isPost,setIsPost] = useState(false);
+    const [post,setPost] = useState({
+        image:'',
+        creater:'',
+        prompt:''
+    })
+
+return (
+    <Container>
+        <Wrapper>
+            <PostForm 
+                post={post} 
+                setPost={setPost} 
+                createPostLoading={isPost}
+                setCreatePostLoading={setIsPost}
+                setGeneratingImage = {setIsGeneratedImageLoading}
+                generatingImage={isGeneratedImageLoading} 
+            />
+            <GeneratedImage 
+                src={post?.image} 
+                loading={isGeneratedImageLoading}
+            />
+        </Wrapper>
+    </Container> 
     );
 }
 
