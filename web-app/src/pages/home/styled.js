@@ -32,7 +32,7 @@ font-weight:800;
 display: flex;
 align-items: center;
 gap: 10px;
-color:${({theme}) => theme.textSecondary};
+color:${({theme}) => theme.primary};
 `
 
 const Wrapper = styled.div`

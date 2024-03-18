@@ -4,6 +4,7 @@ import TextInput from "../textInput/TextInput"
 import { Description, Form, Heading, Top ,Body,Actions} from './styled'
 import Button from '../button/Button'
 import { CreatePost, GenerateAIImage } from '../../api'
+import { AutoAwesome, CreateRounded } from '@mui/icons-material'
 
 const PostForm = ({
     post,
@@ -74,6 +75,7 @@ const PostForm = ({
             isDisabled={ post?.prompt === '' }
             isLoading={generatingImage}
             onClick={() => handleGeneratImage()}
+            leftIcon={<AutoAwesome/>}
         />
         <Button 
             text="Post Image" 
@@ -82,6 +84,7 @@ const PostForm = ({
             isLoading={createPostLoading}
             isDisabled={post?.creater === '' || post?.prompt === '' || post?.image === ''}
             onClick={() => handleCreatePost()}
+            rightIcon={<CreateRounded/>}
         />
     </Actions>
    </Form>
