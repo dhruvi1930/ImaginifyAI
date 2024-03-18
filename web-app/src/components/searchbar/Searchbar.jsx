@@ -2,7 +2,7 @@ import React from 'react'
 import { SearchBarContainer } from './styled'
 import {SearchOutlined} from '@mui/icons-material'
 
-const Searchbar = () => {
+const Searchbar = ({search,setSearch}) => {
   return (
     <SearchBarContainer>
         <SearchOutlined/>
@@ -14,6 +14,8 @@ const Searchbar = () => {
             fontSize:'16px',
             background:'transparent'
         }}
+        value={search}
+        onChange={(event) => setSearch(event.target.value)}
         placeholder='Search images with prompt or name . . .'/>
     </SearchBarContainer>
   )

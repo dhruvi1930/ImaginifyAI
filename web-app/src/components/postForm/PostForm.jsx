@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+import {useNavigate} from 'react-router-dom'
 import TextInput from "../textInput/TextInput"
 import { Description, Form, Heading, Top ,Body,Actions} from './styled'
 import Button from '../button/Button'
+import { CreatePost, GenerateAIImage } from '../../api'
 
 const PostForm = ({
     post,
@@ -11,12 +13,33 @@ const PostForm = ({
     setGeneratingImage,
     generatingImage,
 }) => {
-    const handleGeneratImage = () => {
+    const navigate = useNavigate();
+    const [error,setError] = useState("");
+    const handleGeneratImage = async () => {
         setGeneratingImage(true);
+        await GenerateAIImage({
+            prompt:post?.prompt
+        }).then((response) => {
+          setPost({
+            ...post,
+            image:`data:image/jpge;base64,${response?.data?.image}`
+          })
+          setGeneratingImage(false)  
+        }).catch((error) => {
+            setError(error?.response?.data?.message);
+            setGeneratingImage(false); 
+        })
     }
 
-    const handleCreatePost = () => {
+    const handleCreatePost = async () => {
         setCreatePostLoading(true);
+        await CreatePost(post).then((response) => {
+          setCreatePostLoading(false);
+          navigate('/');  
+        }).catch((error) => {
+            setError(error?.response?.data?.message);
+            setCreatePostLoading(false); 
+        })
     }
 
   return (
@@ -42,6 +65,7 @@ const PostForm = ({
         value={post?.prompt}
         handleChange={(event) => setPost({...post,prompt:event.target.value})}
         />
+        {error && <div style={{color:'red'}}>{error}</div>}
     </Body>
     <Actions>
         <Button 
