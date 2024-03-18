@@ -55,6 +55,4 @@ const createPost = async (request,response,next) => {
     }
 }
 
-// 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
-
 export {getAllPosts,createPost}
