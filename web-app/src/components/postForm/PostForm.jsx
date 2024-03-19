@@ -36,7 +36,7 @@ const PostForm = ({
         setCreatePostLoading(true);
         await CreatePost(post).then((response) => {
           setCreatePostLoading(false);
-          navigate('/');  
+          navigate('/ImaginifyAI');  
         }).catch((error) => {
             setError(error?.response?.data?.message);
             setCreatePostLoading(false); 

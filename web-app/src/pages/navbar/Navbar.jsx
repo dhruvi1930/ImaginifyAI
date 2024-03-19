@@ -13,18 +13,18 @@ const Navbar = () => {
 
     return(
         <Container>
-            <Logo src={logo} onClick={() => navigate("/")}/>
+            <Logo src={logo} onClick={() => navigate("/ImaginifyAI")}/>
             {path[1] === 'post' ? (
                  <Button 
                  text="Explore Posts" 
                  rightIcon={<ExploreRounded/>}
-                 onClick={() => navigate('/')}
+                 onClick={() => navigate('/ImaginifyAI')}
                  />
                 ) : (
                 <Button 
                 text="Create New Post"
                 leftIcon={<AddRounded/>} 
-                onClick={() => navigate('/post')}
+                onClick={() => navigate('/ImaginifyAI/post')}
                 />
             )}
             

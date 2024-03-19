@@ -16,8 +16,8 @@ function App() {
         <BrowserRouter>
         <Navbar/>
         <Routes>
-        <Route path='/' element={<Home/>} exact/>
-        <Route path='/post' element={<CreatePost/>} exact/>
+        <Route path='/ImaginifyAI' element={<Home/>} exact/>
+        <Route path='/ImaginifyAI/post' element={<CreatePost/>} exact/>
         </Routes>
         </BrowserRouter>
       </Wrapper>
