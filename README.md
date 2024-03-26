@@ -47,8 +47,10 @@ Example `.env` file structure:
 # Environment Config
 # Replace the values with your actual API keys and secrets
 OPENAI_API_KEY='your_openai_api_key_here'
-MONGODB_URI='your_mongodb_uri_here'
+MONGODB_URL='your_mongodb_uri_here'
 CLOUDINARY_URL='your_cloudinary_url_here'
+CLOUDINARY_CLOUD_NAME='your_cloudinary_name_here'
+CLOUDINARY_API_SECRET='your_cloudinary_secret_key'
 ```
 
 **Important:** Never commit your `.env` file to your repository. Ensure it's listed in your `.gitignore` file to prevent accidental exposure of your secrets.
